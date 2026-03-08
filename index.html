@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vikash R. — Data Analytics & Automation Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080d1a;
+    --bg2: #0d1526;
+    --surface: rgba(255,255,255,0.04);
+    --surface2: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.08);
+    --accent: #2563ff;
+    --accent2: #06d6a0;
+    --accent3: #f59e0b;
+    --text: #f0f4ff;
+    --muted: #8899bb;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── NOISE TEXTURE ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(8,13,26,0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(37,99,255,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37,99,255,0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(37,99,255,0.18) 0%, transparent 70%);
+    top: -100px; left: 30%;
+    pointer-events: none;
+    animation: pulse 6s ease-in-out infinite;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(6,214,160,0.1) 0%, transparent 70%);
+    bottom: -100px; right: 10%;
+    pointer-events: none;
+    animation: pulse 8s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(37,99,255,0.15);
+    border: 1px solid rgba(37,99,255,0.3);
+    color: #93b4ff;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent2);
+    border-radius: 50%;
+    animation: blink 2s ease infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 .accent { color: var(--accent); }
+  h1 .accent2 { color: var(--accent2); }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-primary:hover {
+    background: #1a4fd6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37,99,255,0.4);
+  }
+
+  .btn-secondary {
+    background: var(--surface2);
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .stat-icon { font-size: 1.2rem; }
+
+  .stat-item strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 5%; position: relative; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px; height: 2px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--bg2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .about-avatar {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+
+  .about-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+  }
+
+  .about-title {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(37,99,255,0.12);
+    border: 1px solid rgba(37,99,255,0.25);
+    color: #93b4ff;
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .companies-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .companies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .company-chip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .about-text strong { color: var(--text); font-weight: 500; }
+
+  .mission-box {
+    background: linear-gradient(135deg, rgba(37,99,255,0.1), rgba(6,214,160,0.1));
+    border: 1px solid rgba(37,99,255,0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .mission-box p {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,255,0.06), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(37,99,255,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
+  .service-card:hover::after { opacity: 1; }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.02em;
+  }
+
+  .service-desc {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--bg2); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .skill-group-title {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .skill-tag:hover {
+    background: rgba(37,99,255,0.15);
+    border-color: rgba(37,99,255,0.3);
+    color: #93b4ff;
+  }
+
+  /* ─── PORTFOLIO ─── */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .portfolio-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .portfolio-card:hover {
+    border-color: rgba(37,99,255,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .portfolio-visual {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-visual.excel { background: linear-gradient(135deg, #0d4a1f, #166534); }
+  .portfolio-visual.powerbi { background: linear-gradient(135deg, #1a0d4a, #3730a3); }
+  .portfolio-visual.python { background: linear-gradient(135deg, #1a3a4a, #0e7490); }
+  .portfolio-visual.qa { background: linear-gradient(135deg, #3a1a0d, #92400e); }
+
+  .portfolio-body { padding: 1.5rem; }
+
+  .portfolio-tag {
+    display: inline-block;
+    background: rgba(37,99,255,0.15);
+    color: #93b4ff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  .portfolio-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .portfolio-desc {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .portfolio-metric {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 1rem;
+    background: rgba(6,214,160,0.1);
+    border: 1px solid rgba(6,214,160,0.2);
+    color: var(--accent2);
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--bg2); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .testimonial-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(37,99,255,0.25);
+    transform: translateY(-3px);
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    font-family: Georgia, serif;
+    font-size: 5rem;
+    color: rgba(37,99,255,0.12);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .testimonial-stars {
+    color: var(--accent3);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .testimonial-text {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    font-family: var(--font-display);
+  }
+
+  .author-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .author-role {
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+
+  /* ─── ADMIN PANEL ─── */
+  .admin-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+
+  .admin-header {
+    background: rgba(37,99,255,0.08);
+    border-bottom: 1px solid var(--border);
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .admin-header:hover { background: rgba(37,99,255,0.12); }
+
+  .admin-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+  }
+
+  .admin-badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .admin-toggle {
+    color: var(--muted);
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+  }
+
+  .admin-toggle.open { transform: rotate(180deg); }
+
+  .admin-body {
+    display: none;
+    padding: 2rem;
+  }
+
+  .admin-body.open { display: block; }
+
+  .admin-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    padding: 0.65rem 0.9rem;
+    transition: border-color 0.2s;
+    outline: none;
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--accent);
+  }
+
+  .form-group textarea { min-height: 90px; }
+
+  .form-group select option { background: #0d1526; }
+
+  .form-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+    grid-column: 1 / -1;
+  }
+
+  .btn-add {
+    background: var(--accent2);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .btn-add:hover {
+    background: #05c491;
+    transform: translateY(-1px);
+  }
+
+  .btn-clear {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-clear:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+  .admin-list {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+  }
+
+  .admin-list-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .admin-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+  }
+
+  .admin-item-text {
+    font-size: 0.85rem;
+    color: var(--muted);
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .admin-item-text strong {
+    color: var(--text);
+    display: block;
+    font-size: 0.88rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .btn-delete {
+    background: rgba(239,68,68,0.12);
+    border: 1px solid rgba(239,68,68,0.2);
+    color: #f87171;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    font-family: var(--font-body);
+  }
+
+  .btn-delete:hover {
+    background: rgba(239,68,68,0.2);
+    border-color: rgba(239,68,68,0.4);
+  }
+
+  .success-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--accent2);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 9999;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 10px 30px rgba(6,214,160,0.3);
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: linear-gradient(135deg, rgba(37,99,255,0.05) 0%, rgba(6,214,160,0.05) 100%);
+  }
+
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.25s;
+  }
+
+  .contact-link:hover {
+    border-color: rgba(37,99,255,0.3);
+    background: var(--surface2);
+    transform: translateX(5px);
+  }
+
+  .contact-link-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .contact-link-text strong {
+    display: block;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+
+  .contact-link-text span {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  .contact-form-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-form-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .contact-form-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-input {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    padding: 0.8rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .contact-input:focus { border-color: var(--accent); }
+
+  .contact-input::placeholder { color: var(--muted); }
+
+  textarea.contact-input { min-height: 120px; resize: vertical; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #050810;
+    border-top: 1px solid var(--border);
+    padding: 3rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--text); }
+
+  .footer-copy {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .about-grid, .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .admin-form { grid-template-columns: 1fr; }
+    nav { padding: 1rem 4%; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 0.8rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 5%; }
+  }
+
+  /* ─── SCROLL ANIMATION ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Vikash<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for Freelance Projects</div>
+    <h1>Transform Your Data Into<br><span class="accent">Business</span> <span class="accent2">Insights</span></h1>
+    <p class="hero-sub">Helping businesses automate Excel workflows, build powerful dashboards, and make smarter decisions with data.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">✦ Hire Me</a>
+      <a href="#portfolio" class="btn-secondary">View Portfolio →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-icon">⭐</span><strong>Top Rated Plus</strong>&nbsp;Freelancer</div>
+      <div class="stat-item"><span class="stat-icon">📊</span><strong>250+</strong>&nbsp;Projects</div>
+      <div class="stat-item"><span class="stat-icon">⏱</span><strong>3000+</strong>&nbsp;Hours Worked</div>
+      <div class="stat-item"><span class="stat-icon">💼</span><strong>Global</strong>&nbsp;Clients</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-card">
+        <div class="about-avatar">VR</div>
+        <div class="about-name">Vikash R.</div>
+        <div class="about-title">Data Analytics & Automation Expert</div>
+        <div class="cert-badge">🏅 Microsoft Certified Excel Automation Specialist</div>
+        <div class="companies-label">Trusted by Industry Leaders</div>
+        <div class="companies-grid">
+          <span class="company-chip">Airtel</span>
+          <span class="company-chip">Honda</span>
+          <span class="company-chip">Apollo Tyres</span>
+          <span class="company-chip">P&G</span>
+          <span class="company-chip">Ooredoo</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <div class="section-label">About</div>
+      <h2>Data Expert on a Mission</h2>
+      <p>Vikash is a <strong>Microsoft Certified Excel Automation Specialist and Data Analyst</strong> with extensive experience helping companies automate workflows, analyze complex datasets, and build powerful business dashboards.</p>
+      <p>With expertise in <strong>Python, SQL, Excel VBA, Power BI, and data visualization</strong>, he helps organizations turn raw data into actionable insights — faster and smarter.</p>
+      <div class="mission-box">
+        <p>🎯 Mission: Help businesses save time, automate manual work, and unlock the true value of their data — so leaders can make decisions with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">Services</div>
+  <h2>What I Can Do For You</h2>
+  <p class="section-desc">End-to-end data solutions tailored to your business needs.</p>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-icon">⚡</span>
+      <div class="service-title">Excel Automation & VBA</div>
+      <p class="service-desc">Automate repetitive Excel tasks using macros and custom VBA scripts. Save hours every week with intelligent workflows.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🐍</span>
+      <div class="service-title">Data Analysis & Python</div>
+      <p class="service-desc">Advanced data analysis using Python, SQL, and analytics frameworks. Extract meaningful patterns from complex datasets.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📊</span>
+      <div class="service-title">Power BI & Dashboards</div>
+      <p class="service-desc">Build interactive dashboards to visualize KPIs and business insights. Real-time data at your fingertips.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🧹</span>
+      <div class="service-title">Data Cleaning & Formatting</div>
+      <p class="service-desc">Clean messy datasets and structure them for analysis. Ensure data quality and consistency across your organization.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔍</span>
+      <div class="service-title">QA Testing</div>
+      <p class="service-desc">Test SaaS and digital products to ensure smooth user experience. Comprehensive bug reporting and quality assurance.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🗂</span>
+      <div class="service-title">Virtual Assistant & Data Entry</div>
+      <p class="service-desc">Reliable administrative support including web research, data management, and operational tasks.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <h2>My Tech Stack</h2>
+  <p class="section-desc">A comprehensive toolkit for data analysis, visualization, and automation.</p>
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <div class="skill-group-title">📈 Data & Analytics</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Excel Automation</span>
+        <span class="skill-tag">Excel VBA</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Data Analysis</span>
+        <span class="skill-tag">Data Cleaning</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">🎨 Visualization</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Looker Studio</span>
+        <span class="skill-tag">Dashboard Dev</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">🛠 Tools & Platforms</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Snowflake</span>
+        <span class="skill-tag">Notion</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Slack</span>
+        <span class="skill-tag">ClickUp</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-label">Portfolio</div>
+  <h2>Featured Projects</h2>
+  <p class="section-desc">A selection of work that demonstrates my capabilities across data and automation.</p>
+  <div class="portfolio-grid reveal">
+    <div class="portfolio-card">
+      <div class="portfolio-visual excel">📊</div>
+      <div class="portfolio-body">
+        <div class="portfolio-tag">Excel · VBA</div>
+        <div class="portfolio-title">Excel Automation System</div>
+        <p class="portfolio-desc">Automated complex reporting workflow that eliminated hours of manual data entry and formatting across multiple departments.</p>
+        <div class="portfolio-metric">📉 80% reduction in manual work</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-visual powerbi">📈</div>
+      <div class="portfolio-body">
+        <div class="portfolio-tag">Power BI</div>
+        <div class="portfolio-title">Real-Time Business Dashboard</div>
+        <p class="portfolio-desc">Created an interactive real-time dashboard for monitoring business KPIs, enabling data-driven decisions at every level.</p>
+        <div class="portfolio-metric">⚡ Real-time data monitoring</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-visual python">🐍</div>
+      <div class="portfolio-body">
+        <div class="portfolio-tag">Python · SQL</div>
+        <div class="portfolio-title">Python Data Analysis Project</div>
+        <p class="portfolio-desc">Processed and analyzed large datasets using Python and SQL, delivering insights that directly shaped business strategy.</p>
+        <div class="portfolio-metric">📊 Large-scale dataset analysis</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-visual qa">🔍</div>
+      <div class="portfolio-body">
+        <div class="portfolio-tag">QA Testing</div>
+        <div class="portfolio-title">SaaS QA Testing</div>
+        <p class="portfolio-desc">Performed comprehensive functionality testing and bug reporting that significantly improved product quality before launch.</p>
+        <div class="portfolio-metric">✅ Zero critical bugs at launch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label">Testimonials</div>
+  <h2>What Clients Say</h2>
+  <p class="section-desc">Real feedback from real clients around the world.</p>
+
+  <div class="testimonials-grid" id="testimonialsGrid"></div>
+
+  <!-- ADMIN PANEL -->
+  <div class="admin-panel reveal">
+    <div class="admin-header" onclick="toggleAdmin(this)">
+      <div class="admin-header-left">
+        <span>🔐</span>
+        <span>Testimonials Manager</span>
+        <span class="admin-badge">Admin</span>
+      </div>
+      <span class="admin-toggle" id="adminArrow">▼</span>
+    </div>
+    <div class="admin-body" id="adminBody">
+      <div class="admin-form">
+        <div class="form-group">
+          <label>Client Name</label>
+          <input type="text" id="clientName" placeholder="e.g. Sarah J." />
+        </div>
+        <div class="form-group">
+          <label>Client Role / Company</label>
+          <input type="text" id="clientRole" placeholder="e.g. Marketing Director, Acme Corp" />
+        </div>
+        <div class="form-group full">
+          <label>Testimonial Text</label>
+          <textarea id="clientText" placeholder="Write the client's testimonial here..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Star Rating</label>
+          <select id="clientRating">
+            <option value="5">⭐⭐⭐⭐⭐ — 5 Stars</option>
+            <option value="4">⭐⭐⭐⭐ — 4 Stars</option>
+            <option value="3">⭐⭐⭐ — 3 Stars</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Avatar Color</label>
+          <select id="clientColor">
+            <option value="linear-gradient(135deg,#2563ff,#06d6a0)">Blue → Teal</option>
+            <option value="linear-gradient(135deg,#7c3aed,#ec4899)">Purple → Pink</option>
+            <option value="linear-gradient(135deg,#f59e0b,#ef4444)">Amber → Red</option>
+            <option value="linear-gradient(135deg,#06d6a0,#2563ff)">Teal → Blue</option>
+            <option value="linear-gradient(135deg,#ec4899,#f59e0b)">Pink → Amber</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button class="btn-add" onclick="addTestimonial()">+ Add Testimonial</button>
+          <button class="btn-clear" onclick="clearForm()">Clear</button>
+        </div>
+      </div>
+
+      <div class="admin-list">
+        <div class="admin-list-title">Existing Testimonials</div>
+        <div id="adminList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <h2>Let's Work Together</h2>
+      <p class="section-desc">Need help with data automation, analytics, or dashboards? I'd love to hear about your project.</p>
+      <div class="contact-links">
+        <a href="mailto:hello@vikashdata.com" class="contact-link">
+          <span class="contact-link-icon">📧</span>
+          <div class="contact-link-text">
+            <strong>Send an Email</strong>
+            <span>hello@vikashdata.com</span>
+          </div>
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">📅</span>
+          <div class="contact-link-text">
+            <strong>Book a Consultation</strong>
+            <span>Schedule a free 30-min call</span>
+          </div>
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">💼</span>
+          <div class="contact-link-text">
+            <strong>Upwork Profile</strong>
+            <span>View reviews & hire directly</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form-box reveal">
+      <div class="contact-form-title">Send a Message</div>
+      <div class="contact-form-fields">
+        <input type="text" class="contact-input" placeholder="Your Name" />
+        <input type="email" class="contact-input" placeholder="Your Email" />
+        <input type="text" class="contact-input" placeholder="Subject / Project Type" />
+        <textarea class="contact-input" placeholder="Tell me about your project..."></textarea>
+        <button class="btn-primary" style="width:100%;justify-content:center" onclick="handleContact(this)">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Vikash<span>.</span></div>
+  <ul class="footer-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Vikash R. — Data Analytics & Automation Expert</div>
+</footer>
+
+<script>
+// ─── TESTIMONIALS DATA ───
+const defaultTestimonials = [
+  {
+    id: 1,
+    name: "James M.",
+    role: "Operations Manager, TechCorp Ltd.",
+    text: "Vikash is one of the best Excel automation specialists I have worked with. He understood our needs immediately and delivered a solution that saved us 10+ hours per week. Highly recommended.",
+    rating: 5,
+    color: "linear-gradient(135deg,#2563ff,#06d6a0)"
+  },
+  {
+    id: 2,
+    name: "Priya S.",
+    role: "Head of Analytics, FinanceHub",
+    text: "He delivered beyond expectations and automated our entire reporting system. What used to take our team 3 days now runs in 20 minutes. Truly exceptional work.",
+    rating: 5,
+    color: "linear-gradient(135deg,#7c3aed,#ec4899)"
+  },
+  {
+    id: 3,
+    name: "Michael R.",
+    role: "CEO, DataDriven Startup",
+    text: "Vikash built us a Power BI dashboard that completely transformed how we view our business data. Clean, intuitive, and exactly what we needed. Will definitely hire again.",
+    rating: 5,
+    color: "linear-gradient(135deg,#f59e0b,#ef4444)"
+  }
+];
+
+let testimonials = JSON.parse(localStorage.getItem('vikash_testimonials') || 'null') || defaultTestimonials;
+let nextId = Math.max(...testimonials.map(t => t.id), 0) + 1;
+
+function saveTestimonials() {
+  localStorage.setItem('vikash_testimonials', JSON.stringify(testimonials));
+}
+
+function starsHTML(n) {
+  return '★'.repeat(n) + '☆'.repeat(5 - n);
+}
+
+function initials(name) {
+  return name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+}
+
+function renderTestimonials() {
+  const grid = document.getElementById('testimonialsGrid');
+  grid.innerHTML = '';
+  testimonials.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card';
+    card.style.animationDelay = `${i * 0.08}s`;
+    card.innerHTML = `
+      <div class="testimonial-stars">${starsHTML(t.rating)}</div>
+      <p class="testimonial-text">"${t.text}"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:${t.color}">${initials(t.name)}</div>
+        <div>
+          <div class="author-name">${t.name}</div>
+          <div class="author-role">${t.role}</div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  renderAdminList();
+}
+
+function renderAdminList() {
+  const list = document.getElementById('adminList');
+  if (!list) return;
+  list.innerHTML = '';
+  if (testimonials.length === 0) {
+    list.innerHTML = '<p style="color:var(--muted);font-size:0.85rem;">No testimonials yet.</p>';
+    return;
+  }
+  testimonials.forEach(t => {
+    const item = document.createElement('div');
+    item.className = 'admin-item';
+    item.innerHTML = `
+      <div class="admin-item-text">
+        <strong>${t.name} — ${t.role}</strong>
+        ${t.text.slice(0, 80)}${t.text.length > 80 ? '...' : ''}
+      </div>
+      <button class="btn-delete" onclick="deleteTestimonial(${t.id})">Delete</button>
+    `;
+    list.appendChild(item);
+  });
+}
+
+function addTestimonial() {
+  const name = document.getElementById('clientName').value.trim();
+  const role = document.getElementById('clientRole').value.trim();
+  const text = document.getElementById('clientText').value.trim();
+  const rating = parseInt(document.getElementById('clientRating').value);
+  const color = document.getElementById('clientColor').value;
+
+  if (!name || !role || !text) {
+    showToast('⚠ Please fill in all fields.', '#ef4444');
+    return;
+  }
+
+  testimonials.push({ id: nextId++, name, role, text, rating, color });
+  saveTestimonials();
+  renderTestimonials();
+  clearForm();
+  showToast('✓ Testimonial added successfully!', 'var(--accent2)');
+}
+
+function deleteTestimonial(id) {
+  testimonials = testimonials.filter(t => t.id !== id);
+  saveTestimonials();
+  renderTestimonials();
+  showToast('Testimonial removed.', '#64748b');
+}
+
+function clearForm() {
+  document.getElementById('clientName').value = '';
+  document.getElementById('clientRole').value = '';
+  document.getElementById('clientText').value = '';
+  document.getElementById('clientRating').value = '5';
+  document.getElementById('clientColor').selectedIndex = 0;
+}
+
+function toggleAdmin(header) {
+  const body = document.getElementById('adminBody');
+  const arrow = document.getElementById('adminArrow');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+}
+
+function showToast(msg, bg) {
+  const existing = document.querySelector('.success-toast');
+  if (existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.className = 'success-toast';
+  toast.style.background = bg;
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+function handleContact(btn) {
+  btn.textContent = '✓ Message Sent!';
+  btn.style.background = 'var(--accent2)';
+  btn.style.pointerEvents = 'none';
+  showToast('✓ Message sent! Vikash will be in touch soon.', 'var(--accent2)');
+  setTimeout(() => {
+    btn.textContent = 'Send Message →';
+    btn.style.background = '';
+    btn.style.pointerEvents = '';
+  }, 3000);
+}
+
+// ─── SCROLL REVEAL ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Init
+renderTestimonials();
+</script>
+</body>
+</html>
